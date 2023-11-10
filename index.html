@@ -73,25 +73,25 @@
       // Agrega la respuesta correcta para cada pregunta
       switch (questionNumber) {
         case 1:
-          return "A";
-        case 2:
           return "C";
+        case 2:
+          return "A";
         case 3:
           return "B";
         case 4:
-          return "A";
+          return "B";
         case 5:
           return "C";
         case 6:
-          return "B";
-        case 7:
           return "A";
+        case 7:
+          return "B";
         case 8:
           return "C";
         case 9:
-          return "B";
+          return "C";
         case 10:
-          return "A";
+          return "B";
         default:
           return "";
       }
@@ -102,32 +102,46 @@
 
   <h2>Hurricane Quiz</h2>
 
+  <div id="reading">
+    <p>Hurricanes, also known as cyclones or typhoons in different parts of the world, are powerful tropical storms characterized by a low-pressure center, strong winds, and heavy rainfall. These storms form over warm ocean waters near the equator, where the sea surface temperatures are typically 26.5 degrees Celsius (80 degrees Fahrenheit) or higher.</p>
+  
+    <p>The life cycle of a hurricane involves several stages. It begins as a tropical disturbance, which is a cluster of thunderstorms with a weak circulation. If the conditions are favorable, the disturbance may intensify into a tropical depression, characterized by organized thunderstorms and a closed circulation. As the system strengthens further, it becomes a tropical storm with sustained wind speeds between 39 and 73 mph (63 and 118 km/h).</p>
+  
+    <p>Once the wind speeds reach or exceed 74 mph (119 km/h), the storm is officially classified as a hurricane. Hurricanes are categorized on the Saffir-Simpson scale, ranging from Category 1 (weakest) to Category 5 (strongest), based on their sustained wind speeds. Category 3, 4, and 5 hurricanes are considered major hurricanes and can cause devastating damage.</p>
+  
+    <p>The center of a hurricane is known as the eye, and it is often characterized by calm and clear conditions. Surrounding the eye is the eyewall, where the strongest winds and heaviest rainfall occur. The spiral bands of thunderstorms extend outward from the eyewall, contributing to the overall size of the storm.</p>
+  
+    <p>Hurricanes play a crucial role in the Earth's climate system by redistributing heat from the equator to higher latitudes. However, these storms can also pose significant threats to coastal communities. Storm surges, high winds, and heavy rainfall can lead to flooding, property damage, and loss of life.</p>
+  
+    <p>Monitoring and predicting hurricanes involve sophisticated technology, including satellites, weather radars, and computer models. Early warning systems are essential to provide residents in potentially affected areas with sufficient time to evacuate and prepare for the storm.</p>
+  </div>
+
   <form action="process_responses.php" method="post">
 
     <div class="question">
-      <p>1. What is the minimum wind speed for a tropical storm to be classified as a hurricane?</p>
+      <p>1. What provides the energy needed for hurricanes to intensify and grow?</p>
       <div class="options">
-        <input type="radio" name="q1" value="A" onclick="checkAnswer(1, 'A')"> A. 74 mph (119 km/h)<br>
-        <input type="radio" name="q1" value="B" onclick="checkAnswer(1, 'B')"> B. 50 mph (80 km/h)<br>
-        <input type="radio" name="q1" value="C" onclick="checkAnswer(1, 'C')"> C. 100 mph (160 km/h)
+        <input type="radio" name="q1" value="A" onclick="checkAnswer(1, 'A')"> A. Low-pressure center<br>
+        <input type="radio" name="q1" value="B" onclick="checkAnswer(1, 'B')"> B. High winds<br>
+        <input type="radio" name="q1" value="C" onclick="checkAnswer(1, 'C')"> C. Warm ocean water
       </div>
     </div>
 
     <div class="question">
-      <p>2. Which of the following factors contributes to the intensification of hurricanes?</p>
+      <p>2. What is a characteristic of hurricanes?</p>
       <div class="options">
-        <input type="radio" name="q2" value="A" onclick="checkAnswer(2, 'A')"> A. Low sea surface temperatures<br>
-        <input type="radio" name="q2" value="B" onclick="checkAnswer(2, 'B')"> B. Dry air<br>
-        <input type="radio" name="q2" value="C" onclick="checkAnswer(2, 'C')"> C. Warm sea surface temperatures
+        <input type="radio" name="q2" value="A" onclick="checkAnswer(2, 'A')"> A. Low-pressure center<br>
+        <input type="radio" name="q2" value="B" onclick="checkAnswer(2, 'B')"> B. Cold ocean water<br>
+        <input type="radio" name="q2" value="C" onclick="checkAnswer(2, 'C')"> C. Desert locations
       </div>
     </div>
 
     <div class="question">
-      <p>3. What is the eye of a hurricane?</p>
+      <p>3. What do hurricanes cause as they move over the ocean?</p>
       <div class="options">
-        <input type="radio" name="q3" value="A" onclick="checkAnswer(3, 'A')"> A. The outer region with strong winds<br>
-        <input type="radio" name="q3" value="B" onclick="checkAnswer(3, 'B')"> B. The calm, relatively clear center<br>
-        <input type="radio" name="q3" value="C" onclick="checkAnswer(3, 'C')"> C. The part where rain is heaviest
+        <input type="radio" name="q3" value="A" onclick="checkAnswer(3, 'A')"> A. Earthquakes<br>
+        <input type="radio" name="q3" value="B" onclick="checkAnswer(3, 'B')"> B. Significant damage through storm surges, high winds, and intense rainfall<br>
+        <input type="radio" name="q3" value="C" onclick="checkAnswer(3, 'C')"> C. Clear skies
       </div>
     </div>
 
