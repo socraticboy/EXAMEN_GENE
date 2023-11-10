@@ -1,103 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hurricane Quiz</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    h2 {
-      text-align: center;
-    }
-
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .question {
-      margin-bottom: 15px;
-    }
-
-    .options {
-      margin-left: 20px;
-    }
-
-    input[type="radio"] {
-      margin-right: 5px;
-    }
-
-    input[type="submit"] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .correct {
-      color: green;
-      font-weight: bold;
-    }
-
-    .incorrect {
-      color: red;
-      font-weight: bold;
-    }
-  </style>
-  <script>
-    function checkAnswer(questionNumber, selectedOption) {
-      var correctAnswer = getCorrectAnswer(questionNumber);
-
-      // Restablece el estilo
-      var options = document.getElementsByName("q" + questionNumber);
-      for (var i = 0; i < options.length; i++) {
-        options[i].parentNode.classList.remove("correct", "incorrect");
-      }
-
-      // Evalúa la respuesta seleccionada
-      if (selectedOption === correctAnswer) {
-        document.querySelector('input[name="q' + questionNumber + '"][value="' + correctAnswer + '"]').parentNode.classList.add("correct");
-      } else {
-        document.querySelector('input[name="q' + questionNumber + '"][value="' + selectedOption + '"]').parentNode.classList.add("incorrect");
-        document.querySelector('input[name="q' + questionNumber + '"][value="' + correctAnswer + '"]').parentNode.classList.add("correct");
-      }
-    }
-
-    function getCorrectAnswer(questionNumber) {
-      // Agrega la respuesta correcta para cada pregunta
-      switch (questionNumber) {
-        case 1:
-          return "C";
-        case 2:
-          return "A";
-        case 3:
-          return "B";
-        case 4:
-          return "B";
-        case 5:
-          return "C";
-        case 6:
-          return "A";
-        case 7:
-          return "B";
-        case 8:
-          return "C";
-        case 9:
-          return "C";
-        case 10:
-          return "B";
-        default:
-          return "";
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <h2>Hurricane Quiz</h2>
@@ -210,6 +120,6 @@
 
     <input type="submit" value="Submit">
   </form>
-
+  <script src="quiz.js"></script>
 </body>
 </html>
