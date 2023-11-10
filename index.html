@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exam Form</title>
+  <title>Hurricane Quiz</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -39,108 +39,162 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    .incorrect {
+      color: red;
+      font-weight: bold;
+    }
   </style>
+  <script>
+    function checkAnswer(questionNumber, selectedOption) {
+      var correctAnswer = getCorrectAnswer(questionNumber);
+
+      // Restablece el estilo
+      var options = document.getElementsByName("q" + questionNumber);
+      for (var i = 0; i < options.length; i++) {
+        options[i].parentNode.classList.remove("correct", "incorrect");
+      }
+
+      // Evalúa la respuesta seleccionada
+      if (selectedOption === correctAnswer) {
+        document.querySelector('input[name="q' + questionNumber + '"][value="' + correctAnswer + '"]').parentNode.classList.add("correct");
+      } else {
+        document.querySelector('input[name="q' + questionNumber + '"][value="' + selectedOption + '"]').parentNode.classList.add("incorrect");
+        document.querySelector('input[name="q' + questionNumber + '"][value="' + correctAnswer + '"]').parentNode.classList.add("correct");
+      }
+    }
+
+    function getCorrectAnswer(questionNumber) {
+      // Agrega la respuesta correcta para cada pregunta
+      switch (questionNumber) {
+        case 1:
+          return "A";
+        case 2:
+          return "C";
+        case 3:
+          return "B";
+        case 4:
+          return "A";
+        case 5:
+          return "C";
+        case 6:
+          return "B";
+        case 7:
+          return "A";
+        case 8:
+          return "C";
+        case 9:
+          return "B";
+        case 10:
+          return "A";
+        default:
+          return "";
+      }
+    }
+  </script>
 </head>
 <body>
 
-  <h2>Clouds Exam</h2>
+  <h2>Hurricane Quiz</h2>
 
   <form action="process_responses.php" method="post">
 
     <div class="question">
-      <p>1. What is the definition of "cloud" in the atmospheric context?</p>
+      <p>1. What is the minimum wind speed for a tropical storm to be classified as a hurricane?</p>
       <div class="options">
-        <input type="radio" name="q1" value="A"> A. A visible mass of water droplets or ice crystals suspended in the atmosphere.<br>
-        <input type="radio" name="q1" value="B"> B. A high-altitude wind pattern.<br>
-        <input type="radio" name="q1" value="C"> C. The process of water vapor turning into liquid.
+        <input type="radio" name="q1" value="A" onclick="checkAnswer(1, 'A')"> A. 74 mph (119 km/h)<br>
+        <input type="radio" name="q1" value="B" onclick="checkAnswer(1, 'B')"> B. 50 mph (80 km/h)<br>
+        <input type="radio" name="q1" value="C" onclick="checkAnswer(1, 'C')"> C. 100 mph (160 km/h)
       </div>
     </div>
 
     <div class="question">
-        <p>2. Which of the following is not a cloud classification based on form?</p>
-        <div class="options">
-          <input type="radio" name="q2" value="A"> A. Cirrus<br>
-          <input type="radio" name="q2" value="B"> B. Stratus<br>
-          <input type="radio" name="q2" value="C"> C. Nimbus<br>
-          <input type="radio" name="q2" value="D"> D. Cumulus
-        </div>
+      <p>2. Which of the following factors contributes to the intensification of hurricanes?</p>
+      <div class="options">
+        <input type="radio" name="q2" value="A" onclick="checkAnswer(2, 'A')"> A. Low sea surface temperatures<br>
+        <input type="radio" name="q2" value="B" onclick="checkAnswer(2, 'B')"> B. Dry air<br>
+        <input type="radio" name="q2" value="C" onclick="checkAnswer(2, 'C')"> C. Warm sea surface temperatures
       </div>
-  
-      <div class="question">
-        <p>3. What are the characteristics of cirrus clouds, and at what altitudes are they typically found?</p>
-        <div class="options">
-          <input type="radio" name="q3" value="A"> A. High-altitude, wispy, and composed of ice crystals.<br>
-          <input type="radio" name="q3" value="B"> B. Low-altitude, layered, and associated with rain.<br>
-          <input type="radio" name="q3" value="C"> C. Mid-altitude, puffy, and often form during clear skies.
-        </div>
-      </div>
+    </div>
 
-      <div class="question">
-        <p>4. How do clouds influence Earth's temperature?</p>
-        <div class="options">
-          <input type="radio" name="q4" value="A"> A. They only cool the atmosphere.<br>
-          <input type="radio" name="q4" value="B"> B. They trap heat, warming the surface.<br>
-          <input type="radio" name="q4" value="C"> C. They have no impact on temperature.
-        </div>
+    <div class="question">
+      <p>3. What is the eye of a hurricane?</p>
+      <div class="options">
+        <input type="radio" name="q3" value="A" onclick="checkAnswer(3, 'A')"> A. The outer region with strong winds<br>
+        <input type="radio" name="q3" value="B" onclick="checkAnswer(3, 'B')"> B. The calm, relatively clear center<br>
+        <input type="radio" name="q3" value="C" onclick="checkAnswer(3, 'C')"> C. The part where rain is heaviest
       </div>
-  
-      <div class="question">
-        <p>5. What role do cumulonimbus clouds play in severe storm development?</p>
-        <div class="options">
-          <input type="radio" name="q5" value="A"> A. They promote calm weather.<br>
-          <input type="radio" name="q5" value="B"> B. They indicate fair weather.<br>
-          <input type="radio" name="q5" value="C"> C. They can lead to thunderstorms and severe weather.
-        </div>
-      </div>
-  
-      <div class="question">
-        <p>6. What causes contrails to form, and how do they influence cloud formation?</p>
-        <div class="options">
-          <input type="radio" name="q6" value="A"> A. Formed by volcanic activity, they contribute to global warming.<br>
-          <input type="radio" name="q6" value="B"> B. Formed by aircraft, they can evolve into cirrus clouds and affect local weather.<br>
-          <input type="radio" name="q6" value="C"> C. Result from ocean currents, influencing precipitation patterns.
-        </div>
-      </div>
-  
-      <div class="question">
-        <p>7. What methods are commonly used to measure cloud height?</p>
-        <div class="options">
-          <input type="radio" name="q7" value="A"> A. Radar and satellites.<br>
-          <input type="radio" name="q7" value="B"> B. Barometers and thermometers.<br>
-          <input type="radio" name="q7" value="C"> C. Telescopes and microscopes.
-        </div>
-      </div>
-  
-      <div class="question">
-        <p>8. Are there clouds on other planets in our solar system? Provide examples and explain their characteristics.</p>
-        <div class="options">
-          <input type="radio" name="q8" value="A"> A. No, clouds are unique to Earth.<br>
-          <input type="radio" name="q8" value="B"> B. Yes, Venus has sulfuric acid clouds, and Mars has water ice clouds.<br>
-          <input type="radio" name="q8" value="C"> C. Clouds only exist on gas giants like Jupiter and Saturn.
-        </div>
-      </div>
-  
-      <div class="question">
-        <p>9. Discuss the relationship between climate change and the distribution of clouds in the atmosphere.</p>
-        <div class="options">
-          <input type="radio" name="q9" value="A"> A. Climate change has no impact on cloud distribution.<br>
-          <input type="radio" name="q9" value="B"> B. Warming temperatures lead to more evaporation, resulting in increased cloud cover.<br>
-          <input type="radio" name="q9" value="C"> C. Cooling temperatures reduce cloud formation.
-        </div>
-      </div>
-  
-      <div class="question">
-        <p>10. Explain the ecological importance of clouds and their impact on local climate patterns.</p>
-        <div class="options">
-          <input type="radio" name="q10" value="A"> A. Clouds have no ecological importance.<br>
-          <input type="radio" name="q10" value="B"> B. They influence rainfall, temperature, and sunlight, affecting ecosystems.<br>
-          <input type="radio" name="q10" value="C"> C. Clouds only affect marine ecosystems.
-        </div>
-      </div>
+    </div>
 
-    <!-- Repeat similar structure for other questions -->
+    <div class="question">
+      <p>4. What scale is commonly used to measure the intensity of hurricanes?</p>
+      <div class="options">
+        <input type="radio" name="q4" value="A" onclick="checkAnswer(4, 'A')"> A. Richter scale<br>
+        <input type="radio" name="q4" value="B" onclick="checkAnswer(4, 'B')"> B. Saffir-Simpson scale<br>
+        <input type="radio" name="q4" value="C" onclick="checkAnswer(4, 'C')"> C. Fujita scale
+      </div>
+    </div>
 
-    
+    <div class="question">
+      <p>5. In which ocean basin are hurricanes known as typhoons?</p>
+      <div class="options">
+        <input type="radio" name="q5" value="A" onclick="checkAnswer(5, 'A')"> A. Atlantic Ocean<br>
+        <input type="radio" name="q5" value="B" onclick="checkAnswer(5, 'B')"> B. Indian Ocean<br>
+        <input type="radio" name="q5" value="C" onclick="checkAnswer(5, 'C')"> C. Pacific Ocean
+      </div>
+    </div>
+
+    <div class="question">
+      <p>6. What is the primary source of energy for hurricanes?</p>
+      <div class="options">
+        <input type="radio" name="q6" value="A" onclick="checkAnswer(6, 'A')"> A. Wind energy<br>
+        <input type="radio" name="q6" value="B" onclick="checkAnswer(6, 'B')"> B. Solar energy<br>
+        <input type="radio" name="q6" value="C" onclick="checkAnswer(6, 'C')"> C. Geothermal energy
+      </div>
+    </div>
+
+    <div class="question">
+      <p>7. What is the eyewall of a hurricane?</p>
+      <div class="options">
+        <input type="radio" name="q7" value="A" onclick="checkAnswer(7, 'A')"> A. The innermost part with the calmest conditions<br>
+        <input type="radio" name="q7" value="B" onclick="checkAnswer(7, 'B')"> B. The region surrounding the eye with the strongest winds<br>
+        <input type="radio" name="q7" value="C" onclick="checkAnswer(7, 'C')"> C. The area where hurricanes make landfall
+      </div>
+    </div>
+
+    <div class="question">
+      <p>8. What is the typical season for hurricanes in the Atlantic?</p>
+      <div class="options">
+        <input type="radio" name="q8" value="A" onclick="checkAnswer(8, 'A')"> A. Winter<br>
+        <input type="radio" name="q8" value="B" onclick="checkAnswer(8, 'B')"> B. Spring<br>
+        <input type="radio" name="q8" value="C" onclick="checkAnswer(8, 'C')"> C. Summer and fall
+      </div>
+    </div>
+
+    <div class="question">
+      <p>9. Which category on the Saffir-Simpson scale represents the most severe hurricanes?</p>
+      <div class="options">
+        <input type="radio" name="q9" value="A" onclick="checkAnswer(9, 'A')"> A. Category 1<br>
+        <input type="radio" name="q9" value="B" onclick="checkAnswer(9, 'B')"> B. Category 3<br>
+        <input type="radio" name="q9" value="C" onclick="checkAnswer(9, 'C')"> C. Category 5
+      </div>
+    </div>
+
+    <div class="question">
+      <p>10. What is the term used for a rotating column of air in a hurricane?</p>
+      <div class="options">
+        <input type="radio" name="q10" value="A" onclick="checkAnswer(10, 'A')"> A. Funnel<br>
+        <input type="radio" name="q10" value="B" onclick="checkAnswer(10, 'B')"> B. Vortex<br>
+        <input type="radio" name="q10" value="C" onclick="checkAnswer(10, 'C')"> C. Eye
+      </div>
+    </div>
+
+    <input type="submit" value="Submit">
   </form>
 
 </body>
